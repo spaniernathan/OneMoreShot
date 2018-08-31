@@ -6,25 +6,19 @@ CardsImgs = require("../../assets/Ressources.js").CardsImgs;
 
 export default class Card extends React.Component {
   render() {
-    // let imgSrc = CardsImgs[this.props.type][this.props.number];
-    let imgSrc;
-    console.log(this.props.rule);
+    let imgSrc = CardsImgs[this.props.type][this.props.number];
     return (
       <ImageBackground source={imgSrc} style={Style.cardImage}>
-        <Text style={{ textAlign: "center" }}>{this.props.rule}</Text>
+        <Text style={{ textAlign: "center", color: "purple" }}>
+          {this.props.rule}
+        </Text>
       </ImageBackground>
     );
   }
 }
 
-Card.PropType = {
+Card.propType = {
   type: PropType.number,
   number: PropType.number,
   rule: PropType.string
 };
-
-// Card.defaultProps = {
-//   type: Math.floor(Math.random() * 4 + 1),
-//   number: Math.floor(Math.random() * 13 + 1),
-//   rule: "Insert Rule"
-// };

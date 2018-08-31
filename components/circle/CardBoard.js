@@ -12,7 +12,6 @@ export default class CardBoard extends React.Component {
       type: Math.floor(Math.random() * 4 + 1),
       counter: 0
     };
-    console.log(this.state.number, this.state.type);
   }
 
   nextElem = () => {
@@ -30,7 +29,7 @@ export default class CardBoard extends React.Component {
           <Card
             type={this.state.type}
             number={this.state.number}
-            rule={"GameCards[this.state.number].rule"}
+            rule={GameCards[this.state.number].rule}
           />
         </TouchableOpacity>
       </View>

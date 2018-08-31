@@ -1,6 +1,6 @@
 import React from "react";
-import { StatusBar, View } from "react-native";
-import CardBoard from "./components/circle/Card";
+import { StatusBar, View, AppRegistry } from "react-native";
+import CardBoard from "./components/circle/CardBoard";
 import Style from "./components/Stylesheets";
 
 export default class App extends React.Component {
