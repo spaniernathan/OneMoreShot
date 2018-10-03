@@ -1,15 +1,19 @@
 import React from "react";
-import { StatusBar, View, AppRegistry } from "react-native";
-import CardBoard from "./components/circle/CardBoard";
-import Style from "./components/Stylesheets";
+import { createStackNavigator } from "react-navigation";
+import CardBoard from "./components/games/circle/CardBoard";
+import HomeScreen from "./components/general/HomeScreen"
 
 export default class App extends React.Component {
   render() {
     return (
-      <View style={Style.home}>
-        <StatusBar hidden={true} />
-        <CardBoard />
-      </View>
+      <RootStack />
     );
   }
 }
+
+const RootStack = createStackNavigator(
+  {
+    Home: HomeScreen,
+    Circle: CardBoard,
+  },
+);
