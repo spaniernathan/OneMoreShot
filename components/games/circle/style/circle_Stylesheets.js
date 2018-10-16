@@ -13,8 +13,11 @@ export default StyleSheet.create({
   cardboard: {
     alignItems: "center",
     justifyContent: "center",
-    marginTop: 150
+    marginTop: 0,
+    marginBottom: 0,
+    height: 700,
+    backgroundColor: "hsl(0, 0%, 80%)"
   },
-  mainmenu_buttons: {
+  endScreen: {
   }
 });

@@ -1,33 +1,28 @@
 import React from "react";
-import { StatusBar, View, Text, Button } from "react-native";
+import { View, BackHandler, StatusBar } from "react-native";
 import Style from "../general/style/general_Stylesheets";
+import CustomButton from '../custom/custom_button';
 
 export default class HomeScreen extends React.Component {
-	static navigationOptions = {
-		title: 'OneModeShot',
-	};
 	render() {
 		return (
 			<View style={Style.home}>
 				<StatusBar hidden={true} />
-				<Button
+				<CustomButton
 					onPress={() => this.props.navigation.navigate('Circle')}
-					title="The Circle"
-					color="#841584"
-					accessibilityLabel=""
-					style={Style.mainmenu_buttons}
+					text="The Circle"
 				/>
-				<Button
-					onPress={() => this.props.navigation.navigate('Circle')}
-					title="Settings"
-					color="#841584"
-					accessibilityLabel=""
+				<CustomButton
+					onPress={() => this.props.navigation.navigate('Purple')}
+					text="Purple"
 				/>
-				<Button
-					onPress={() => this.props.navigation.navigate('Circle')}
-					title="Quit"
-					color="#841584"
-					accessibilityLabel=""
+				<CustomButton
+					onPress={() => this.props.navigation.navigate('GeneralSettings')}
+					text="Settings"
+				/>
+				<CustomButton
+					onPress={() => BackHandler.exitApp()}
+					text="Quit"
 				/>
 			</View>
 		)

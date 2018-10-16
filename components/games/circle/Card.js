@@ -1,5 +1,5 @@
 import React from "react";
-import { Text, ImageBackground } from "react-native";
+import { Text, ImageBackground, View } from "react-native";
 import Style from "./style/circle_Stylesheets";
 import PropType from "prop-types";
 CardsImgs = require("./Ressources.js").CardsImgs;
@@ -8,11 +8,17 @@ export default class Card extends React.Component {
   render() {
     let imgSrc = CardsImgs[this.props.type][this.props.number];
     return (
-      <ImageBackground source={imgSrc} style={Style.cardImage}>
+      <View 
+      style={{ 
+        alignItems: "center",
+        justifyContent: "center"
+      }}>
         <Text style={{ textAlign: "center", color: "purple" }}>
           {this.props.rule}
         </Text>
-      </ImageBackground>
+        <ImageBackground source={imgSrc} style={Style.cardImage}>
+        </ImageBackground>
+      </View>
     );
   }
 }
