@@ -1,9 +1,11 @@
 import React from "react";
-import { View, TouchableOpacity, Text } from "react-native";
+import { View, TouchableOpacity, Text, Dimensions } from "react-native";
 import Style from "./style/circle_Stylesheets";
-import Card from "./Card";
+import GeneralStyle from '../../general/style/general_Stylesheets';
+import Card from "./circleCard";
 import CustomButton from '../../custom/custom_button';
-GameCards = require("./Ressources.js").GameCards;
+GameCards = require("./circleRessources.js").GameCards;
+let { height, width } = Dimensions.get("window");
 
 let stack_number = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13];
 let stack_type = [[1, 2, 3, 4], [1, 2, 3, 4], [1, 2, 3, 4], [1, 2, 3, 4], [1, 2, 3, 4], [1, 2, 3, 4], [1, 2, 3, 4], [1, 2, 3, 4], [1, 2, 3, 4], [1, 2, 3, 4], [1, 2, 3, 4], [1, 2, 3, 4], [1, 2, 3, 4]];
@@ -54,36 +56,63 @@ export default class CardBoard extends React.Component {
   render() {
     if (gameStatus == 1) {
       return (
-        <View style={Style.cardboard}>
-          <TouchableOpacity activeOpacity={1} onPress={this.nextElem}>
-            <Card
-              type={type}
-              number={number}
-              rule={GameCards[number].rule}
+        <View>
+          <View style={GeneralStyle.header}>
+            <Text style={GeneralStyle.headerText}>Le cercle</Text>
+          </View>
+          <View style={Style.cardboard}>
+            <TouchableOpacity activeOpacity={1} onPress={this.nextElem}>
+              <Card
+                type={type}
+                number={number}
+                rule={GameCards[number].rule}
+              />
+            </TouchableOpacity>
+          </View>
+          <View style={GeneralStyle.multipleButtons}>
+            <CustomButton
+              onPress={() => { this.resetCardBoard(); this.props.navigation.pop() }}
+              text="Retour"
             />
-          </TouchableOpacity>
-          <CustomButton
-            onPress={() => this.props.navigation.navigate('circle_rules')}
-            text="Rules"
-          />
+            <CustomButton
+              onPress={() => { this.props.navigation.push('CircleRules') }}
+              text="Règles"
+            />
+            <CustomButton
+              onPress={() => { this.nextElem(); this.resetCardBoard(); }}
+              text="Reset"
+            />
+          </View>
         </View>
       );
     }
     if (gameStatus == 0) {
       return (
         <View>
-          <Text>La Partie est terminée !</Text>
-          <CustomButton
-            onPress={() => {
-              this.resetCardBoard
-              this.props.navigation.navigate('Home')
-            }}
-            text="Retour au menu"
-          />
-          <CustomButton
-            onPress={() => { this.resetCardBoard(); }}
-            text="Rejouer"
-          />
+          <View style={GeneralStyle.header}>
+            <Text style={GeneralStyle.headerText}>Partie terminée !</Text>
+          </View>
+          <View style={Style.endGame}>
+            <Text style={{
+              fontSize: 25,
+              textAlign: 'center',
+              width: width * .85,
+              marginVertical: 30
+            }}>
+              Vous pouvez relancer une partie ou retourner au menu pour jouer à un autre jeu !
+            </Text>
+            <CustomButton
+              onPress={() => { this.resetCardBoard(); }}
+              text="Rejouer"
+            />
+            <CustomButton
+              onPress={() => {
+                this.resetCardBoard()
+                this.props.navigation.navigate('Home')
+              }}
+              text="Retour au menu"
+            />
+          </View>
         </View>
       );
     }

@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "OneMoreShot",
-    "description": "Build for me and my friends for the moment",
+    "description": "Build for me and my friends for the moment :)",
     "slug": "OneMoreShot",
     "privacy": "public",
     "sdkVersion": "30.0.0",
@@ -24,7 +24,11 @@
       "**/*"
     ],
     "ios": {
+      "bundleIdentifier": "com.spaniernathan.onemoreshot",
       "supportsTablet": true
+    },
+    "android": {
+      "package": "com.spaniernathan.onemoreshot"
     }
   }
 }

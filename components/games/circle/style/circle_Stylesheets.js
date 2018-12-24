@@ -1,12 +1,11 @@
 import { StyleSheet, Dimensions } from "react-native";
 
-let height = Dimensions.get("window").height;
-let width = Dimensions.get("window").width;
+let { height, width } = Dimensions.get("window");
 
 export default StyleSheet.create({
   cardImage: {
-    height: 323,
-    width: 222,
+    height: (width * .85) * 1.455,
+    width: (width * .85),
     alignItems: "center",
     justifyContent: "center"
   },
@@ -15,9 +14,16 @@ export default StyleSheet.create({
     justifyContent: "center",
     marginTop: 0,
     marginBottom: 0,
-    height: 700,
-    backgroundColor: "hsl(0, 0%, 80%)"
+    height: height - (height * 0.2),
+    backgroundColor: "hsl(0, 0%, 90%)"
   },
-  endScreen: {
+  cardText: {
+    fontSize: 20,
+    textAlign: "center",
+    color: "black",
+    width: width * .85
+  },
+  endGame: {
+    alignSelf: 'center'
   }
 });
