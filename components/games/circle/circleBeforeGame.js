@@ -1,9 +1,7 @@
 import React from "react";
-import { View, Text, Dimensions } from "react-native";
+import { View, StyleSheet } from "react-native";
 import CustomButton from '../../custom/custom_button';
-import Style from '../../general/style/general_Stylesheets';
-
-let { height, width } = Dimensions.get("window");
+import Header from '../../custom/oms_header';
 
 export default class circleBeforeGame extends React.Component {
 	constructor(props) {
@@ -13,17 +11,11 @@ export default class circleBeforeGame extends React.Component {
 	render() {
 		return (
 			<View>
-				<View style={Style.header}>
-					<Text style={{
-						fontSize: 25,
-						paddingTop: (height * 10 / 200) - 20,
-						color: '#ffffff',
-						alignSelf: 'center'
-					}}>
-						Choissisez un mode de jeu:
-					</Text>
-				</View>
-				<View>
+				<Header
+					title="Choissisez un mode de jeu"
+					headerStyle={styles.header}
+				/>
+				<View style={styles.buttons}>
 					<CustomButton
 						onPress={() => {
 							this.resetCardBoard
@@ -45,6 +37,8 @@ export default class circleBeforeGame extends React.Component {
 						}}
 						text="Règles"
 					/>
+				</View>
+				<View style={styles.buttons}>
 					<CustomButton
 						onPress={() => {
 							this.resetCardBoard
@@ -57,3 +51,14 @@ export default class circleBeforeGame extends React.Component {
 		)
 	}
 }
+
+const styles = StyleSheet.create({
+	header: {
+		marginBottom: global.oms_height * 0.05,
+	},
+	buttons: {
+		width: global.oms_width * 0.95,
+		alignSelf: 'center',
+		marginBottom: global.oms_width * 0.05,
+	}
+});

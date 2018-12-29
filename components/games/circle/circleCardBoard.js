@@ -1,11 +1,10 @@
 import React from "react";
-import { View, TouchableOpacity, Text, Dimensions } from "react-native";
-import Style from "./style/circle_Stylesheets";
-import GeneralStyle from '../../general/style/general_Stylesheets';
+import { View, TouchableOpacity, Text, StyleSheet } from "react-native";
 import Card from "./circleCard";
 import CustomButton from '../../custom/custom_button';
+import Header from '../../custom/oms_header';
+import MultiButtons from "../../custom/oms_multibuttons";
 GameCards = require("./circleRessources.js").GameCards;
-let { height, width } = Dimensions.get("window");
 
 let stack_number = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13];
 let stack_type = [[1, 2, 3, 4], [1, 2, 3, 4], [1, 2, 3, 4], [1, 2, 3, 4], [1, 2, 3, 4], [1, 2, 3, 4], [1, 2, 3, 4], [1, 2, 3, 4], [1, 2, 3, 4], [1, 2, 3, 4], [1, 2, 3, 4], [1, 2, 3, 4], [1, 2, 3, 4]];
@@ -57,10 +56,8 @@ export default class CardBoard extends React.Component {
     if (gameStatus == 1) {
       return (
         <View>
-          <View style={GeneralStyle.header}>
-            <Text style={GeneralStyle.headerText}>Le cercle</Text>
-          </View>
-          <View style={Style.cardboard}>
+          <Header title="Le cercle" />
+          <View style={styles.cardboard}>
             <TouchableOpacity activeOpacity={1} onPress={this.nextElem}>
               <Card
                 type={type}
@@ -69,7 +66,7 @@ export default class CardBoard extends React.Component {
               />
             </TouchableOpacity>
           </View>
-          <View style={GeneralStyle.multipleButtons}>
+          <MultiButtons>
             <CustomButton
               onPress={() => { this.resetCardBoard(); this.props.navigation.pop() }}
               text="Retour"
@@ -82,21 +79,19 @@ export default class CardBoard extends React.Component {
               onPress={() => { this.nextElem(); this.resetCardBoard(); }}
               text="Reset"
             />
-          </View>
+          </MultiButtons>
         </View>
       );
     }
     if (gameStatus == 0) {
       return (
         <View>
-          <View style={GeneralStyle.header}>
-            <Text style={GeneralStyle.headerText}>Partie terminée !</Text>
-          </View>
-          <View style={Style.endGame}>
+          <Header title="Partie terminée !" />
+          <View style={styles.endGame}>
             <Text style={{
               fontSize: 25,
               textAlign: 'center',
-              width: width * .85,
+              width: global.oms_width * .85,
               marginVertical: 30
             }}>
               Vous pouvez relancer une partie ou retourner au menu pour jouer à un autre jeu !
@@ -118,3 +113,17 @@ export default class CardBoard extends React.Component {
     }
   }
 }
+
+const styles = StyleSheet.create({
+  cardboard: {
+    alignItems: "center",
+    justifyContent: "center",
+    marginTop: 0,
+    marginBottom: 0,
+    height: global.oms_height - (global.oms_height * 0.2),
+    backgroundColor: "hsl(0, 0%, 90%)"
+  },
+  endGame: {
+    alignSelf: 'center'
+  }
+})

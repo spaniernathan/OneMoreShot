@@ -3,7 +3,7 @@ import { View, StyleSheet } from "react-native";
 import CustomButton from '../../custom/custom_button';
 import Header from '../../custom/oms_header';
 
-export default class mainPurple extends React.Component {
+export default class mainGog extends React.Component {
 	constructor(props) {
 		super(props);
 	}
@@ -11,19 +11,25 @@ export default class mainPurple extends React.Component {
 		return (
 			<View>
 				<Header
-					title="Purple"
+					title="Jeu du jeu"
 					headerStyle={styles.header}
 				/>
 				<View style={styles.buttons}>
 					<CustomButton
 						onPress={() => {
-							this.props.navigation.navigate('PurpleBeforeGame')
+							this.props.navigation.navigate('GoGChoice')
+						}}
+						text="Choisir un jeu"
+					/>
+					<CustomButton
+						onPress={() => {
+							this.props.navigation.navigate('GoGGame')
 						}}
 						text="Lancer la partie"
 					/>
 					<CustomButton
 						onPress={() => {
-							this.props.navigation.navigate('PurpleRules')
+							this.props.navigation.navigate('GoGRules')
 						}}
 						text="Règles"
 					/>

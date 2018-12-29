@@ -1,10 +1,9 @@
 import React from "react";
 import { Modal, Text, View, Alert, FlatList, TouchableOpacity, Dimensions } from "react-native";
 import CustomButton from '../../custom/custom_button';
-import Style from './style/circle_Stylesheets';
-import GeneralStyle from '../../general/style/general_Stylesheets';
+import Header from '../../custom/oms_header';
+
 GameCards = require("./circleRessources.js").GameCards;
-let { height, width } = Dimensions.get("window");
 
 let Rules = [
 	{
@@ -101,10 +100,10 @@ export default class circleCardsRules extends React.Component {
 							borderRadius: 10,
 							borderWidth: 1,
 							borderColor: 'black',
-							height: height / 15,
-							width: width - 10,
+							height: global.oms_height / 15,
+							width: global.oms_width - 10,
 							backgroundColor: '#202646',
-							paddingTop: (height / (15 * 2)) - 15,
+							paddingTop: (global.oms_height / (15 * 2)) - 15,
 							margin: 2,
 							alignSelf: 'center'
 						}}
@@ -113,7 +112,7 @@ export default class circleCardsRules extends React.Component {
 							}}
 						>
 							<Text style={{
-								fontSize: 20,
+								fontSize: global.oms_width / 17,
 								color: '#ffffff',
 								textAlign: 'center',
 							}}>{item.title}</Text>
@@ -130,14 +129,10 @@ export default class circleCardsRules extends React.Component {
 					visible={this.state.modalVisible}
 					onRequestClose={() => { this.setModalVisible(false); }}>
 					<View>
-						<View style={GeneralStyle.header}>
-							<Text style={GeneralStyle.headerText}>
-								Règle de la carte {this.state.ClickedCard.title}
-							</Text>
-						</View>
+						<Header title={"Règle de la carte " + this.state.ClickedCard.title} />
 						<View style={{
 							alignSelf: 'center',
-							width: width * 95 / 100,
+							width: global.oms_width * 95 / 100,
 							marginVertical: 5
 						}}>
 							<Text style={{
@@ -149,7 +144,7 @@ export default class circleCardsRules extends React.Component {
 						</View>
 						<View style={{
 							alignSelf: 'center',
-							width: width * 80 / 100,
+							width: global.oms_width * 80 / 100,
 							marginVertical: 10
 						}}>
 							<Text style={{

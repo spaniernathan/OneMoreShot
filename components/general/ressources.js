@@ -1,0 +1,62 @@
+module.exports.CardsImgs = {
+	1: {
+		1: require("../../assets/cards/1_1.png"),
+		2: require("../../assets/cards/1_2.png"),
+		3: require("../../assets/cards/1_3.png"),
+		4: require("../../assets/cards/1_4.png"),
+		5: require("../../assets/cards/1_5.png"),
+		6: require("../../assets/cards/1_6.png"),
+		7: require("../../assets/cards/1_7.png"),
+		8: require("../../assets/cards/1_8.png"),
+		9: require("../../assets/cards/1_9.png"),
+		10: require("../../assets/cards/1_10.png"),
+		11: require("../../assets/cards/1_11.png"),
+		12: require("../../assets/cards/1_12.png"),
+		13: require("../../assets/cards/1_13.png")
+	},
+	2: {
+		1: require("../../assets/cards/2_1.png"),
+		2: require("../../assets/cards/2_2.png"),
+		3: require("../../assets/cards/2_3.png"),
+		4: require("../../assets/cards/2_4.png"),
+		5: require("../../assets/cards/2_5.png"),
+		6: require("../../assets/cards/2_6.png"),
+		7: require("../../assets/cards/2_7.png"),
+		8: require("../../assets/cards/2_8.png"),
+		9: require("../../assets/cards/2_9.png"),
+		10: require("../../assets/cards/2_10.png"),
+		11: require("../../assets/cards/2_11.png"),
+		12: require("../../assets/cards/2_12.png"),
+		13: require("../../assets/cards/2_13.png")
+	},
+	3: {
+		1: require("../../assets/cards/3_1.png"),
+		2: require("../../assets/cards/3_2.png"),
+		3: require("../../assets/cards/3_3.png"),
+		4: require("../../assets/cards/3_4.png"),
+		5: require("../../assets/cards/3_5.png"),
+		6: require("../../assets/cards/3_6.png"),
+		7: require("../../assets/cards/3_7.png"),
+		8: require("../../assets/cards/3_8.png"),
+		9: require("../../assets/cards/3_9.png"),
+		10: require("../../assets/cards/3_10.png"),
+		11: require("../../assets/cards/3_11.png"),
+		12: require("../../assets/cards/3_12.png"),
+		13: require("../../assets/cards/3_13.png")
+	},
+	4: {
+		1: require("../../assets/cards/4_1.png"),
+		2: require("../../assets/cards/4_2.png"),
+		3: require("../../assets/cards/4_3.png"),
+		4: require("../../assets/cards/4_4.png"),
+		5: require("../../assets/cards/4_5.png"),
+		6: require("../../assets/cards/4_6.png"),
+		7: require("../../assets/cards/4_7.png"),
+		8: require("../../assets/cards/4_8.png"),
+		9: require("../../assets/cards/4_9.png"),
+		10: require("../../assets/cards/4_10.png"),
+		11: require("../../assets/cards/4_11.png"),
+		12: require("../../assets/cards/4_12.png"),
+		13: require("../../assets/cards/4_13.png")
+	}
+};

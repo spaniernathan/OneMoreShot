@@ -1,7 +1,7 @@
 import React from "react";
-import { View, Text } from "react-native";
+import { View } from "react-native";
 import CustomButton from '../custom/custom_button';
-
+import Header from '../custom/oms_header';
 
 export default class generalSettings extends React.Component {
 	constructor(props) {
@@ -10,7 +10,7 @@ export default class generalSettings extends React.Component {
 	render() {
 		return (
 			<View>
-				<Text>Settings is in WIP</Text>
+				<Header title="Paramètres" />
 				<CustomButton
 					onPress={() => this.props.navigation.navigate('Home')}
 					text="Retour au menu"
