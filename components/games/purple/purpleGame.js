@@ -11,8 +11,8 @@ export default class purpleGame extends React.Component {
 		this.state = { stack: { purple: 0, red: 0, black: 0 }, currentPlayer: {}, numberCardLeft: 52 };
 		this.turn = 0;
 		this.currentIndex = 0;
-		this.players = null
-		this.pickedCards = [];
+		this.players = null;
+		this.pickedCards = [1, 2, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4];
 	}
 
 	componentDidMount() {
@@ -24,15 +24,15 @@ export default class purpleGame extends React.Component {
 
 	addPurple = () => {
 		this.setState({ stack: { purple: this.state.stack.purple + 1, red: this.state.stack.red, black: this.state.stack.black } });
-	}
+	};
 
 	addRed = () => {
 		this.setState({ stack: { purple: this.state.stack.purple, red: this.state.stack.red + 1, black: this.state.stack.black } });
-	}
+	};
 
 	addBlack = () => {
 		this.setState({ stack: { purple: this.state.stack.purple, red: this.state.stack.red, black: this.state.stack.black + 1 } });
-	}
+	};
 
 	getNumberCards = () => {
 		let nbCards = (this.state.stack.purple * 2) + (this.state.stack.red) + (this.state.stack.black);
@@ -40,11 +40,11 @@ export default class purpleGame extends React.Component {
 
 		// draw and remove nbCards cards from array / object and store them in pickedCards array
 		this.pickedCards = [];
-	}
+	};
 
 	reset = () => {
 		this.setState({ stack: { purple: 0, red: 0, black: 0 } });
-	}
+	};
 
 	nextPlayer = () => {
 		if (this.currentIndex < this.turn - 1) {
@@ -53,15 +53,15 @@ export default class purpleGame extends React.Component {
 			this.currentIndex = 0;
 		}
 		this.setState({ currentPlayer: this.players[this.currentIndex] })
-	}
+	};
 
 	validate = () => {
-		this.getNumberCards;
-	}
+		this.getNumberCards();
+	};
 
 	bank = () => {
-		this.nextPlayer
-	}
+		this.nextPlayer();
+	};
 
 	render() {
 		return (
@@ -151,24 +151,28 @@ export default class purpleGame extends React.Component {
 const styles = StyleSheet.create({
 	counter: {
 		flexDirection: 'row',
-		justifyContent: 'space-evenly'
+		justifyContent: 'space-evenly',
+		backgroundColor: 'blue'
 	},
 	counter_text: {
 		fontSize: global.oms_width / 15
 	},
 	cards: {
-		height: global.oms_height * 0.6
+		height: global.oms_height * 0.55,
+		backgroundColor: 'green'
 	},
 	informations: {
 		width: global.oms_width * 0.95,
 		alignSelf: 'center',
 		flexDirection: 'row',
-		justifyContent: 'space-between'
+		justifyContent: 'space-between',
+		backgroundColor: 'red'
 	},
 	info_text: {
 		fontSize: global.oms_width / 18
 	},
 	decision: {
 		alignSelf: 'center',
+		backgroundColor: 'yellow'
 	}
 });

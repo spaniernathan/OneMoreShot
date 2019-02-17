@@ -1,7 +1,7 @@
 import React from "react";
-import { ImageBackground, View, StyleSheet, ScrollView, Text } from "react-native";
+import { ImageBackground, View, StyleSheet, ScrollView } from "react-native";
 import PropType from "prop-types";
-CardsImgs = require("../../general/ressources").CardsImgs;
+let CardsImgs = require("../../general/ressources").CardsImgs;
 
 export default class purpleCard extends React.Component {
 	render() {

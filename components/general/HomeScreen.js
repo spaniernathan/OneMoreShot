@@ -1,9 +1,13 @@
 import React from "react";
-import { View, BackHandler, StatusBar, Text, StyleSheet } from "react-native";
+import { View, BackHandler, StatusBar, Text, StyleSheet, AsyncStorage } from "react-native";
 import CustomButton from '../custom/custom_button';
+
+import * as scr from './save';
+let GameCards = require("../games/circle/circleRessources.js").GameCards;
 
 export default class HomeScreen extends React.Component {
 	render() {
+		checkFirstStart();
 		return (
 			<View style={styles.homescreen}>
 				<StatusBar hidden={true} />
@@ -47,6 +51,17 @@ export default class HomeScreen extends React.Component {
 			</View>
 		)
 	}
+}
+
+function checkFirstStart() {
+	AsyncStorage.getItem('ft').then( (val) => {
+		if (val == null) {
+			AsyncStorage.setItem('ft', 'true');
+			for (let i = 1; i < 14; i++) {
+				scr.saveCircleRule(i, GameCards[i].rule);
+			}
+		}
+	});
 }
 
 const styles = StyleSheet.create({

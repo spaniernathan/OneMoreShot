@@ -18,22 +18,19 @@ export default class circleBeforeGame extends React.Component {
 				<View style={styles.buttons}>
 					<CustomButton
 						onPress={() => {
-							this.resetCardBoard
-							this.props.navigation.navigate('CircleWithCards')
+							this.props.navigation.navigate('CircleWithCards');
 						}}
 						text="J'ai des cartes"
 					/>
 					<CustomButton
 						onPress={() => {
-							this.resetCardBoard
-							this.props.navigation.navigate('CircleWithoutCards')
+							this.props.navigation.navigate('CircleWithoutCards');
 						}}
 						text="Je n'ai pas de cartes"
 					/>
 					<CustomButton
 						onPress={() => {
-							this.resetCardBoard
-							this.props.navigation.navigate('CircleRules')
+							this.props.navigation.navigate('CircleRules');
 						}}
 						text="Règles"
 					/>
@@ -41,8 +38,7 @@ export default class circleBeforeGame extends React.Component {
 				<View style={styles.buttons}>
 					<CustomButton
 						onPress={() => {
-							this.resetCardBoard
-							this.props.navigation.navigate('Home')
+							this.props.navigation.navigate('Home');
 						}}
 						text="Retour au menu"
 					/>
