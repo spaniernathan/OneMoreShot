@@ -1,8 +1,8 @@
 import React from "react";
 import { View, BackHandler, StatusBar, Text, StyleSheet, AsyncStorage } from "react-native";
 import CustomButton from '../custom/custom_button';
-
 import * as scr from './save';
+import { global } from "./globals";
 let GameCards = require("../games/circle/circleRessources.js").GameCards;
 
 export default class HomeScreen extends React.Component {
@@ -12,7 +12,7 @@ export default class HomeScreen extends React.Component {
 			<View style={styles.homescreen}>
 				<StatusBar hidden={true} />
 				<View style={styles.logo}>
-					<Text style={{ fontSize: global.oms_width / 10, color: global.primary_blue }}>OneMoreShot</Text>
+					<Text style={{ fontSize: global.WIDTH / 10, color: global.BLUE }}>OneMoreShot</Text>
 				</View>
 				<View style={styles.buttons}>
 					<CustomButton
@@ -39,10 +39,10 @@ export default class HomeScreen extends React.Component {
 					/>
 				</View>
 				<View style={{
-					top: global.oms_width - (global.oms_width * 0.1),
+					top: global.WIDTH - (global.WIDTH * 0.1),
 				}}>
 					<Text style={{
-						fontSize: global.oms_width / 30,
+						fontSize: global.WIDTH / 30,
 						textAlign: 'center'
 					}}>
 						L'abus d'alcool est dangereux pour la santé.
@@ -54,7 +54,7 @@ export default class HomeScreen extends React.Component {
 }
 
 function checkFirstStart() {
-	AsyncStorage.getItem('ft').then( (val) => {
+	AsyncStorage.getItem('ft', ()=>{}).then( (val) => {
 		if (val == null) {
 			AsyncStorage.setItem('ft', 'true');
 			for (let i = 1; i < 14; i++) {
@@ -67,15 +67,15 @@ function checkFirstStart() {
 const styles = StyleSheet.create({
 	homescreen: {
 		backgroundColor: 'white',
-		height: global.oms_height
+		height: global.HEIGHT
 	},
 	buttons: {
-		width: global.oms_width * 0.95,
+		width: global.WIDTH * 0.95,
 		alignSelf: 'center',
-		marginBottom: global.oms_width * 0.05,
+		marginBottom: global.WIDTH * 0.05,
 	},
 	logo: {
 		alignSelf: 'center',
-		marginVertical: global.oms_width * 0.1
+		marginVertical: global.WIDTH * 0.1
 	}
 });

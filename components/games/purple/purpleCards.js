@@ -2,6 +2,7 @@ import React from "react";
 import { ImageBackground, View, StyleSheet, ScrollView } from "react-native";
 import PropType from "prop-types";
 let CardsImgs = require("../../general/ressources").CardsImgs;
+import { global } from "../../general/globals";
 
 export default class purpleCard extends React.Component {
 	render() {
@@ -39,11 +40,11 @@ const styles = StyleSheet.create({
 		flex: 1,
 		padding: 4,
 		flexWrap: 'wrap',
-		marginVertical: global.oms_width * .1
+		marginVertical: global.WIDTH * .1
 	},
 	cardImage: {
-		height: (global.oms_width * .22) * 1.455,
-		width: (global.oms_width * .22),
+		height: (global.WIDTH * .22) * 1.455,
+		width: (global.WIDTH * .22),
 		alignItems: "center",
 		justifyContent: "center",
 		borderColor: 'black'

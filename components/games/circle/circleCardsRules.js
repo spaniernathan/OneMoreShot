@@ -3,7 +3,7 @@ import { Modal, Text, View, TextInput, FlatList, TouchableOpacity, ScrollView } 
 import CustomButton from '../../custom/custom_button';
 import Header from '../../custom/oms_header';
 import * as save from '../../general/save';
-
+import { global } from "../../general/globals";
 let GameCards = require('./circleRessources').GameCards;
 
 let Rules = [
@@ -151,10 +151,10 @@ export default class circleCardsRules extends React.Component {
 							borderRadius: 10,
 							borderWidth: 1,
 							borderColor: 'black',
-							height: global.oms_height / 16,
-							width: global.oms_width - 10,
-							backgroundColor: '#202646',
-							paddingTop: (global.oms_height / (16 * 2)) - 16,
+							height: global.HEIGHT / 16,
+							width: global.WIDTH - 10,
+							backgroundColor: global.BLUE,
+							paddingTop: (global.HEIGHT / (16 * 2)) - 16,
 							margin: 2,
 							alignSelf: 'center'
 						}}
@@ -163,7 +163,7 @@ export default class circleCardsRules extends React.Component {
 							}}
 						>
 							<Text style={{
-								fontSize: global.oms_width / 17,
+								fontSize: global.WIDTH / 17,
 								color: '#ffffff',
 								textAlign: 'center',
 							}}>{item.title}</Text>
@@ -188,7 +188,7 @@ export default class circleCardsRules extends React.Component {
 						<ScrollView>
 							<View style={{
 								alignSelf: 'center',
-								width: global.oms_width * .95,
+								width: global.WIDTH * .95,
 								marginVertical: 5
 							}}>
 								<Text style={{
@@ -200,7 +200,7 @@ export default class circleCardsRules extends React.Component {
 							</View>
 							<View style={{
 								alignSelf: 'center',
-								width: global.oms_width * .8,
+								width: global.WIDTH * .8,
 								marginVertical: 10
 							}}>
 								<Text style={{
@@ -228,13 +228,13 @@ export default class circleCardsRules extends React.Component {
 					onRequestClose={() => { this.setEditVisible(false); }}
 				>
 					<View style={{
-						height: global.oms_height * .5
+						height: global.HEIGHT * .5
 					}}>
 						<Header title={"Edition de la carte " + this.state.ClickedCard.title} />
 						<ScrollView>
 							<View style={{
 								alignSelf: 'center',
-								width: global.oms_width * .95,
+								width: global.WIDTH * .95,
 								marginVertical: 5
 							}}>
 								<TextInput

@@ -4,6 +4,7 @@ import CustomButton from '../../custom/custom_button';
 import Header from '../../custom/oms_header';
 import MultiButtons from "../../custom/oms_multibuttons";
 import PurpleCard from "./purpleCards";
+import { global } from "../../general/globals";
 
 export default class purpleGame extends React.Component {
 	constructor(props) {
@@ -11,7 +12,7 @@ export default class purpleGame extends React.Component {
 		this.state = { stack: { purple: 0, red: 0, black: 0 }, currentPlayer: {}, numberCardLeft: 52 };
 		this.turn = 0;
 		this.currentIndex = 0;
-		this.players = null;
+		this.players = this.props.players;
 		this.pickedCards = [1, 2, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4];
 	}
 
@@ -107,7 +108,7 @@ export default class purpleGame extends React.Component {
 						onPress={this.addRed}
 						text="+ 1 Rouge"
 						buttonStyle={{
-							backgroundColor: global.primary_red
+							backgroundColor: global.RED
 						}}
 					/>
 					<CustomButton
@@ -132,14 +133,14 @@ export default class purpleGame extends React.Component {
 						}}
 						text="Retour"
 						buttonStyle={{
-							width: global.oms_width * 0.48
+							width: global.WIDTH * 0.48
 						}}
 					/>
 					<CustomButton
 						onPress={this.reset}
 						text="Reset"
 						buttonStyle={{
-							width: global.oms_width * 0.48
+							width: global.WIDTH * 0.48
 						}}
 					/>
 				</MultiButtons>
@@ -155,21 +156,21 @@ const styles = StyleSheet.create({
 		backgroundColor: 'blue'
 	},
 	counter_text: {
-		fontSize: global.oms_width / 15
+		fontSize: global.WIDTH / 15
 	},
 	cards: {
-		height: global.oms_height * 0.55,
+		height: global.HEIGHT * 0.55,
 		backgroundColor: 'green'
 	},
 	informations: {
-		width: global.oms_width * 0.95,
+		width: global.WIDTH * 0.95,
 		alignSelf: 'center',
 		flexDirection: 'row',
 		justifyContent: 'space-between',
 		backgroundColor: 'red'
 	},
 	info_text: {
-		fontSize: global.oms_width / 18
+		fontSize: global.WIDTH / 18
 	},
 	decision: {
 		alignSelf: 'center',

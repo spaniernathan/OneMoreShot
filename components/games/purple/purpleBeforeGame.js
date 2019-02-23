@@ -3,11 +3,12 @@ import { View, Text, Platform, StyleSheet, Animated, ScrollView } from 'react-na
 import CustomButton from '../../custom/custom_button';
 import Header from '../../custom/oms_header';
 import MultiButtons from "../../custom/oms_multibuttons";
+import { global } from "../../general/globals";
 
 export default class purpleBeforeGame extends React.Component {
 	constructor(props) {
 		super(props);
-		this.state = { valueArray: [] }
+		this.state = { valueArray: [] };
 		this.index = 0;
 		this.animatedValue = new Animated.Value(0);
 		this.clickedIndex = 0;
@@ -15,7 +16,7 @@ export default class purpleBeforeGame extends React.Component {
 
 	addMore = () => {
 		this.animatedValue.setValue(0);
-		let newlyAddedValue = { name: "PlayerName" + this.index }
+		let newlyAddedValue = { name: "PlayerName" + this.index };
 		this.setState({ valueArray: [...this.state.valueArray, newlyAddedValue] }, () => {
 			Animated.timing(
 				this.animatedValue, {
@@ -52,7 +53,7 @@ export default class purpleBeforeGame extends React.Component {
 							}}
 							text="Supprimer"
 							buttonStyle={{
-								backgroundColor: global.primary_red
+								backgroundColor: global.RED
 							}}
 						/>
 						<Text style={styles.text}>{item.name} {key}</Text>
@@ -69,7 +70,7 @@ export default class purpleBeforeGame extends React.Component {
 							}}
 							text="Supprimer"
 							buttonStyle={{
-								backgroundColor: global.primary_red
+								backgroundColor: global.RED
 							}}
 						/>
 						<Text style={styles.text}>{item.name} {key}</Text>
@@ -119,13 +120,12 @@ const styles = StyleSheet.create({
 		flexDirection: 'row',
 		justifyContent: 'space-between',
 		height: 55,
-		backgroundColor: global.primary_blue,
-		justifyContent: 'center',
+		backgroundColor: global.BLUE,
 		alignItems: 'center',
 		margin: 4
 	},
 	text: {
 		color: 'white',
-		fontSize: global.oms_width / 15
+		fontSize: global.WIDTH / 15
 	}
 });

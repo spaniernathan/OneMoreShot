@@ -1,6 +1,7 @@
 import React from "react";
 import { Text, ImageBackground, View, StyleSheet } from "react-native";
 import PropType from "prop-types";
+import { global } from "../../general/globals";
 let CardsImgs = require("../../general/ressources").CardsImgs;
 
 export default class Card extends React.Component {
@@ -30,15 +31,15 @@ Card.propType = {
 
 const styles = StyleSheet.create({
   cardImage: {
-    height: (global.oms_height * .5),
-    width: (global.oms_height * .5) / 1.455,
+    height: (global.HEIGHT * .5),
+    width: (global.HEIGHT * .5) / 1.455,
     alignItems: "center",
     justifyContent: "center"
   },
   cardText: {
-    fontSize: global.oms_width / 22,
+    fontSize: global.WIDTH / 22,
     textAlign: "center",
     color: "black",
-    width: global.oms_width * .85
+    width: global.WIDTH * .85
   }
 })

@@ -2,6 +2,7 @@ import React from "react";
 import { View, Text, StyleSheet, ScrollView } from "react-native";
 import CustomButton from '../../custom/custom_button';
 import Header from '../../custom/oms_header';
+import { global } from "../../general/globals";
 
 export default class circleRules extends React.Component {
 	constructor(props) {
@@ -47,7 +48,7 @@ export default class circleRules extends React.Component {
 
 const styles = StyleSheet.create({
 	text: {
-		fontSize: global.oms_width / 20,
+		fontSize: global.WIDTH / 20,
 		marginBottom: 3
 	},
 	rulesContainer: {
@@ -57,6 +58,6 @@ const styles = StyleSheet.create({
 		marginBottom: 10
 	},
 	scrollview: {
-		height: global.oms_height * .8
+		height: global.HEIGHT * .8
 	}
 });

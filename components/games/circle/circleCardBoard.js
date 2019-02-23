@@ -5,6 +5,7 @@ import CustomButton from '../../custom/custom_button';
 import Header from '../../custom/oms_header';
 import MultiButtons from "../../custom/oms_multibuttons";
 import * as save from "../../general/save";
+import { global } from "../../general/globals";
 
 let stack_number = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13];
 let stack_type = [[1, 2, 3, 4], [1, 2, 3, 4], [1, 2, 3, 4], [1, 2, 3, 4], [1, 2, 3, 4], [1, 2, 3, 4], [1, 2, 3, 4], [1, 2, 3, 4], [1, 2, 3, 4], [1, 2, 3, 4], [1, 2, 3, 4], [1, 2, 3, 4], [1, 2, 3, 4]];
@@ -105,21 +106,21 @@ export default class CardBoard extends React.Component {
               onPress={() => { this.resetCardBoard(); this.props.navigation.pop() }}
               text="Retour"
               buttonStyle={{
-                width: global.oms_width * .30
+                width: global.WIDTH * .30
               }}
             />
             <CustomButton
               onPress={() => { this.props.navigation.push('CircleRules') }}
               text="Règles"
               buttonStyle={{
-                width: global.oms_width * .30
+                width: global.WIDTH * .30
               }}
             />
             <CustomButton
               onPress={() => { this.nextElem(); this.resetCardBoard(); }}
               text="Reset"
               buttonStyle={{
-                width: global.oms_width * .30
+                width: global.WIDTH * .30
               }}
             />
           </MultiButtons>
@@ -134,7 +135,7 @@ export default class CardBoard extends React.Component {
             <Text style={{
               fontSize: 25,
               textAlign: 'center',
-              width: global.oms_width * .85,
+              width: global.WIDTH * .85,
               marginVertical: 30
             }}>
               Vous pouvez relancer une partie ou retourner au menu pour jouer à un autre jeu !
@@ -163,7 +164,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     marginTop: 0,
     marginBottom: 0,
-    height: global.oms_height - (global.oms_height * 0.18),
+    height: global.HEIGHT - (global.HEIGHT * 0.18),
     backgroundColor: "hsl(0, 0%, 90%)"
   },
   endGame: {
